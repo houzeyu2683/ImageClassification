@@ -6,8 +6,8 @@ test = data.Unit(path, batch=6, inference=True, device='cuda')
 test.makeEngine()
 test.getSample()
 
-path = './log/best.pt'
-model = framework.Model(tag='ResNet34', path=path)
+checkpoint = './log/best.pt'
+model = framework.Model(tag='ResNet34', checkpoint=checkpoint)
 machine = framework.Machine(model, device='cuda')
 
 machine.makeInference(test.engine)

@@ -11,7 +11,7 @@ validation = data.Unit(path, batch=6, inference=True, device='cuda')
 validation.makeEngine()
 validation.getSample()
 
-model = framework.Model(tag='ResNet34', path=None)
+model = framework.Model(tag='ResNet34', checkpoint=None)
 machine = framework.Machine(model, device='cuda')
 
 turn = 20

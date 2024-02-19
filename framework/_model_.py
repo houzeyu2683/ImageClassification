@@ -5,7 +5,7 @@ import torchvision
 
 class Model(torch.nn.Module):
 
-    def __init__(self, tag='ResNet34', path=None):
+    def __init__(self, tag='ResNet34', checkpoint=None):
         super(Model, self).__init__()
         if(tag=='ResNet34'):
             weight = 'ResNet34_Weights.IMAGENET1K_V1'
@@ -47,8 +47,8 @@ class Model(torch.nn.Module):
         self.tag = tag
         self.layer = layer
         self.criteria = criteria
-        if(path): 
-            self.load_state_dict(torch.load(path, map_location='cpu'))
+        if(checkpoint): 
+            self.load_state_dict(torch.load(checkpoint, map_location='cpu'))
             pass
         return
 

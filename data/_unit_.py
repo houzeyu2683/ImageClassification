@@ -92,7 +92,7 @@ class Procedure:
         path = [self.item['path']]
         return(path)
 
-    def getImage(self, application=False):
+    def getImage(self):
         layout    = (256, 256)
         size      = (224, 224)
         mean      = [0.195, 0.195, 0.195]
@@ -120,7 +120,7 @@ class Procedure:
         image = PIL.Image.open(self.item['path']).convert("RGB")
         image = transform(image).type(torch.FloatTensor)
         image = image.to(self.device)
-        if(application): image = image.unsqueeze(0)
+        # if(application): image = image.unsqueeze(0)
         return(image)
 
     def getTarget(self):
